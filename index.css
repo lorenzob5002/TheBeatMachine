@@ -1,0 +1,66 @@
+body {
+  text-align: center;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #ffffff;
+  font-family: "Gloria Hallelujah";
+  text-shadow: 10px 0 #000000;
+}
+
+.a {
+  background-image: url("images/w.png");
+}
+
+.s {
+  background-image: url("images/a.png");
+}
+
+.d {
+  background-image: url("images/s.png");
+}
+
+.f {
+  background-image: url("images/d.png");
+}
+
+.j {
+  background-image: url("images/j.png");
+}
+
+.k {
+  background-image: url("images/k.png");
+}
+
+.l {
+  background-image: url("images/l.png");
+}
+
+.all {
+  margin: 10% auto;
+}
+
+.animation {
+  box-shadow: 0 3px 4px 0 #dbedf3;
+  opacity: 0.5;
+}
+
+.button {
+  outline: none;
+  border: 10px solid #000000;
+  font-size: 4rem;
+  font-family: "Gloria Hallelujah";
+  line-height: 2;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 10px 0 #000000;
+  border-radius: 15px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  background-color: white;
+}
