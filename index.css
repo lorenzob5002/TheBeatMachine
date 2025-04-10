@@ -10,32 +10,57 @@ h1 {
   text-shadow: 10px 0 #000000;
 }
 
+h2 {
+  font-size: 1rem;
+  color: #000000;
+  font-family: "Gloria Hallelujah";
+}
+
+.a,
+.s,
+.d,
+.f,
+.j,
+.k,
+.l,
+.p {
+  width: 150px;
+  height: 150px;
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: inline-block;
+}
 .a {
-  background-image: url("images/w.png");
+  background-image: url("pics/kick.png");
 }
 
 .s {
-  background-image: url("images/a.png");
+  background-image: url("pics/snare.png");
 }
 
 .d {
-  background-image: url("images/s.png");
+  background-image: url("pics/hihat.png");
 }
 
 .f {
-  background-image: url("images/d.png");
+  background-image: url("pics/openhat.png");
 }
 
 .j {
-  background-image: url("images/j.png");
+  background-image: url("pics/clap.png");
 }
 
 .k {
-  background-image: url("images/k.png");
+  background-image: url("pics/ride.png");
 }
 
 .l {
-  background-image: url("images/l.png");
+  background-image: url("pics/glass.png");
+}
+
+.p {
+  background-image: url("pics/hey.png");
 }
 
 .all {
