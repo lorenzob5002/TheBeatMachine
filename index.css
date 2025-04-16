@@ -1,6 +1,8 @@
 body {
   text-align: center;
   background-color: #ffffff;
+  padding: 2rem;
+  font-family: sans-serif;
 }
 
 h1 {
@@ -10,10 +12,50 @@ h1 {
   text-shadow: 10px 0 #000000;
 }
 
-h2 {
+h2,
+h3 {
   font-size: 1rem;
   color: #000000;
   font-family: "Gloria Hallelujah";
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(17, 50px);
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.row-label {
+  grid-column: 1 / 2;
+  text-align: right;
+  margin-right: 10px;
+  color: black;
+  line-height: 50px;
+}
+
+.step {
+  width: 50px;
+  height: 50px;
+  background: #444;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.step.active {
+  background: #00ff99;
+}
+
+.step.playing {
+  border: 2px solid #fff;
+}
+
+.controls {
+  margin-top: 20px;
 }
 
 .a,
@@ -29,36 +71,30 @@ h2 {
   background-color: #ffffff;
   background-size: cover;
   background-position: center;
-  background-repeat: inline-block;
+  background-repeat: no-repeat;
 }
+
 .a {
   background-image: url("pics/kick.png");
 }
-
 .s {
   background-image: url("pics/snare.png");
 }
-
 .d {
   background-image: url("pics/hihat.png");
 }
-
 .f {
   background-image: url("pics/openhat.png");
 }
-
 .j {
   background-image: url("pics/clap.png");
 }
-
 .k {
   background-image: url("pics/ride.png");
 }
-
 .l {
   background-image: url("pics/glass.png");
 }
-
 .p {
   background-image: url("pics/hey.png");
 }
@@ -77,14 +113,11 @@ h2 {
   border: 10px solid #000000;
   font-size: 4rem;
   font-family: "Gloria Hallelujah";
-  line-height: 2;
   font-weight: 900;
   color: #ffffff;
   text-shadow: 10px 0 #000000;
   border-radius: 15px;
   display: inline-block;
-  width: 150px;
-  height: 150px;
   text-align: center;
   margin: 10px;
   background-color: white;

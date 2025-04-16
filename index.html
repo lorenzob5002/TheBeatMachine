@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>the asdf machine</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -10,17 +12,28 @@
       a: kick, s: snare, d: hihat, f: openhat, j: clap, k: ride, l: glass, p:
       chant
     </h2>
+
     <div class="all">
-      <button class="a button"></button>
-      <button class="s button"></button>
-      <button class="d button"></button>
-      <button class="f button"></button>
-      <button class="j button"></button>
-      <button class="k button"></button>
-      <button class="l button"></button>
-      <button class="p button"></button>
+      <button class="a button drum"></button>
+      <button class="s button drum"></button>
+      <button class="d button drum"></button>
+      <button class="f button drum"></button>
+      <button class="j button drum"></button>
+      <button class="k button drum"></button>
+      <button class="l button drum"></button>
+      <button class="p button drum"></button>
     </div>
 
-    <script src="drums.js"></script>
+    <!-- Sequencer grid UI -->
+    <h3 style="margin-top: 3rem">Step Sequencer</h3>
+    <div class="grid" id="sequencer"></div>
+    <div class="controls">
+      <button onclick="startSequencer()">Play</button>
+      <button onclick="stopSequencer()">Stop</button>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="buttons.js"></script>
+    <script src="sequencer.js"></script>
   </body>
 </html>
