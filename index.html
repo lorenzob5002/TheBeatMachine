@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>the asdf machine</title>
@@ -14,52 +13,34 @@
     </h2>
 
     <div class="all">
-      <button class="a button drum"></button>
-      <button class="s button drum"></button>
-      <button class="d button drum"></button>
-      <button class="f button drum"></button>
-      <button class="j button drum"></button>
-      <button class="k button drum"></button>
-      <button class="l button drum"></button>
-      <button class="p button drum"></button>
+      <button class="a button"></button>
+      <button class="s button"></button>
+      <button class="d button"></button>
+      <button class="f button"></button>
+      <button class="j button"></button>
+      <button class="k button"></button>
+      <button class="l button"></button>
+      <button class="p button"></button>
     </div>
 
-    <!-- Step Sequencer Section -->
-    <h3 style="margin-top: 3rem">Step Sequencer</h3>
-
-    <div id="sequencer-container">
-      <!-- Row Controls (Labels + Gain Sliders) will be here -->
-      <div id="row-controls" class="row-controls">
-        <!-- Dynamically generated labels and sliders will go here -->
-      </div>
-
-      <!-- Sequencer Grid for Steps -->
-      <div id="sequencer" class="grid">
-        <!-- Dynamically generated step buttons will go here -->
-      </div>
+    <!-- Sequencer grid UI -->
+    <h3 style="margin-top: 3rem">Step Sequencer</h3>   
+     <div class="tempo-controls">
+        <label for = "tempo">Tempo: <span id= "bpm-display">120</span> BPM</label>
+        <input type="range" id="tempo" min="10" max="250" value="120"/>
     </div>
-
-    <!-- Tempo Control -->
-    <div class="tempo-control">
-      <label for="tempoSlider">Tempo: <span id="bpmDisplay">120</span> BPM</label><br />
-      <input
-        type="range"
-        id="tempoSlider"
-        min="60"
-        max="200"
-        value="120"
-        oninput="document.getElementById('bpmDisplay').innerText = this.value"
-      />
-    </div>
-
-    <!-- Play/Stop Controls -->
+    <div class="grid" id="sequencer"></div>
     <div class="controls">
-      <button onclick="startSequencer()">Play</button>
-      <button onclick="stopSequencer()">Stop</button>
+        <button onclick="startSequencer()">▶ Play</button>
+        <button onclick="stopSequencer()">⏹ Stop</button>
+        <button onclick="startRecording()">⚪Start Recording</button>
+        <button onclick="stopRecording()">✉️Stop & Export</button>
+
     </div>
 
-    <!-- JS Files -->
+
     <script src="buttons.js"></script>
     <script src="sequencer.js"></script>
+    <script src="recorder.js"></script>
   </body>
 </html>

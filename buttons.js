@@ -9,6 +9,13 @@ const drumSounds = {
   p: "drums/hey.wav",
 };
 
+// Audio context and gain nodes
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const masterGain = audioContext.createGain();
+masterGain.connect(audioContext.destination);
+const gainNodes = {}; // Individual gain nodes per key
+
+// Button event listeners
 const drumButtons = document.querySelectorAll(".button");
 drumButtons.forEach((button) => {
   button.addEventListener("click", function () {
@@ -18,6 +25,7 @@ drumButtons.forEach((button) => {
   });
 });
 
+// Keypress listener
 document.addEventListener("keypress", function (event) {
   const key = event.key.toLowerCase();
   if (drumSounds[key]) {
@@ -26,14 +34,30 @@ document.addEventListener("keypress", function (event) {
   }
 });
 
+// Play drum sound using Web Audio API
 function playDrumSound(key) {
   const soundFile = drumSounds[key];
   if (soundFile) {
-    const audio = new Audio(soundFile);
-    audio.play();
+    fetch(soundFile)
+      .then((response) => response.arrayBuffer())
+      .then((arrayBuffer) => audioContext.decodeAudioData(arrayBuffer))
+      .then((audioBuffer) => {
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+
+        // Create or reuse a gain node for the key
+        if (!gainNodes[key]) {
+          gainNodes[key] = audioContext.createGain();
+          gainNodes[key].gain.value = 1;
+        }
+
+        source.connect(gainNodes[key]).connect(masterGain);
+        source.start();
+      });
   }
 }
 
+// Animate button on press
 function animateButton(key) {
   const button = document.querySelector("." + key);
   if (button) {
@@ -50,3 +74,5 @@ function playSoundForRow(row) {
   const key = keys[row];
   playDrumSound(key);
 }
+
+
