@@ -24,15 +24,41 @@
       <button class="p button drum"></button>
     </div>
 
-    <!-- Sequencer grid UI -->
+    <!-- Step Sequencer Section -->
     <h3 style="margin-top: 3rem">Step Sequencer</h3>
-    <div class="grid" id="sequencer"></div>
+
+    <div id="sequencer-container">
+      <!-- Row Controls (Labels + Gain Sliders) will be here -->
+      <div id="row-controls" class="row-controls">
+        <!-- Dynamically generated labels and sliders will go here -->
+      </div>
+
+      <!-- Sequencer Grid for Steps -->
+      <div id="sequencer" class="grid">
+        <!-- Dynamically generated step buttons will go here -->
+      </div>
+    </div>
+
+    <!-- Tempo Control -->
+    <div class="tempo-control">
+      <label for="tempoSlider">Tempo: <span id="bpmDisplay">120</span> BPM</label><br />
+      <input
+        type="range"
+        id="tempoSlider"
+        min="60"
+        max="200"
+        value="120"
+        oninput="document.getElementById('bpmDisplay').innerText = this.value"
+      />
+    </div>
+
+    <!-- Play/Stop Controls -->
     <div class="controls">
       <button onclick="startSequencer()">Play</button>
       <button onclick="stopSequencer()">Stop</button>
     </div>
 
-    <!-- JavaScript files -->
+    <!-- JS Files -->
     <script src="buttons.js"></script>
     <script src="sequencer.js"></script>
   </body>
