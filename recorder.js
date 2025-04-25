@@ -9,7 +9,7 @@ function startRecording() {
 
   mediaRecorder = new MediaRecorder(dest.stream);
 
-  mediaRecorder.ondataavailable = event => {
+  mediaRecorder.ondataavailable = (event) => {
     if (event.data.size > 0) recordedChunks.push(event.data);
   };
 

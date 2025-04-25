@@ -57,7 +57,7 @@ function playDrumSound(key) {
   }
 }
 
-// Animate button on press
+// animate button
 function animateButton(key) {
   const button = document.querySelector("." + key);
   if (button) {
@@ -68,11 +68,36 @@ function animateButton(key) {
   }
 }
 
-// For sequencer integration
+// sequencer integration
 function playSoundForRow(row) {
   const keys = Object.keys(drumSounds);
   const key = keys[row];
   playDrumSound(key);
 }
 
+// update playSoundForKey to use gain sliders
+function playSoundForKey(key) {
+  const buffer = drumSounds[key];
+  if (!buffer) return;
 
+  const source = audioContext.createBufferSource();
+  const gainNode = gainNodes[key] || audioContext.createGain();
+  gainNodes[key] = gainNode;
+  source.buffer = buffer;
+  source.connect(gainNode);
+  gainNode.connect(masterGain);
+  source.start();
+}
+
+// Set up gain sliders
+document.querySelectorAll(".gain-slider").forEach((slider) => {
+  const key = slider.dataset.key;
+  const gainNode = gainNodes[key] || audioContext.createGain();
+  gainNodes[key] = gainNode;
+  gainNode.gain.value = parseFloat(slider.value);
+  gainNode.connect(masterGain);
+
+  slider.addEventListener("input", () => {
+    gainNode.gain.value = parseFloat(slider.value);
+  });
+});
